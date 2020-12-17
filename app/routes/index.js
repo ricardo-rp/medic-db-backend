@@ -1,4 +1,4 @@
-const getRoutes = require('./product-get-route');
+const getRoutes = require('./patient-get-route');
 const postRoutes = require('./patient-post-route');
 const putRoutes = require('./product-put-route');
 const deleteRoutes = require('./product-delete-route');
