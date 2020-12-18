@@ -1,7 +1,7 @@
 const getRoutes = require('./patient-get-route');
 const postRoutes = require('./patient-post-route');
 const putRoutes = require('./patient-put-route');
-const deleteRoutes = require('./product-delete-route');
+const deleteRoutes = require('./patient-delete-route');
 const loadDatabase = require('../data/setup-database');
 
 module.exports = function (app, db) {
