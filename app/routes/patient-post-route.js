@@ -3,16 +3,16 @@ module.exports = function (app, db) {
   // http://localhost:4300/api/patient
   // Sending a JSON body:
   // {
-  //   "fullName": "Janeen Wasson",
-  //   "birthDate": "2020-05-28 16:27:53",
-  //   "motherName": "Druci Hegley",
+  //   "full_name": "Janeen Wasson",
+  //   "birth_date": "2020-05-28 16:27:53",
+  //   "mother_name": "Druci Hegley",
   //   "city": "Trinidad",
-  //   "handbookNumber": 796,
+  //   "handbook_number": 796,
   //   "sex": "F",
-  //   "statusId": 0,
-  //   "surgeryId": 0,
+  //   "status_id": 0,
+  //   "surgery_id": 0,
   //   "weight": 10,
-  //   "bedNumber": 37
+  //   "bed_number": 37
   // }
   app.post("/patient/", (req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -23,15 +23,15 @@ module.exports = function (app, db) {
 
 function insertPatient(patient, res, db) {
   var values = [
-    patient.fullName,
-    patient.birthDate,
-    patient.motherName,
+    patient.full_name,
+    patient.birth_date,
+    patient.mother_name,
     patient.city,
-    patient.handbookNumber,
-    patient.bedNumber,
+    patient.handbook_number,
+    patient.bed_number,
     patient.sex,
-    patient.statusId,
-    patient.surgeryId,
+    patient.status_id,
+    patient.surgery_id,
     patient.weight,
   ];
 

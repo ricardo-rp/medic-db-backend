@@ -23,15 +23,15 @@ function checkIfExists(res, db, sql) {
 
 function updatePatient(patient, res, req, db) {
   var values = [
-    patient.fullName,
-    patient.birthDate,
-    patient.motherName,
+    patient.full_name,
+    patient.birth_date,
+    patient.mother_name,
     patient.city,
-    patient.handbookNumber,
-    patient.bedNumber,
+    patient.handbook_number,
+    patient.bed_number,
     patient.sex,
-    patient.statusId,
-    patient.surgeryId,
+    patient.status_id,
+    patient.surgery_id,
     patient.weight,
     req.params.id,
   ];
