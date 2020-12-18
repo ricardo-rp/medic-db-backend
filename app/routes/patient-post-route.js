@@ -14,12 +14,7 @@ module.exports = function (app, db) {
   //   "weight": 10,
   //   "bedNumber": 37
   // }
-  //
-  // or an array of patients:
-  // [
-  //     {...},{...}
-  // ]
-  app.post("/patient/", (req, res) => {
+  app.post("/patient/", (req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     insertPatient(req.body, res, db);
