@@ -10,6 +10,14 @@ module.exports = function (app, db) {
     processData(res, "SELECT * FROM patients");
   });
 
+  // Load all patients: http://localhost:4300/patient/
+  app.get("/timeline", (req, res) => {
+    const sql = `select COUNT(id), 
+    strftime("%m-%Y", birth_date) as 'month-year' 
+    from Patients group by strftime("%m-%Y", birth_date)`;
+    processData(res, sql);
+  });
+
   function processData(res, sql) {
     db.serialize(function () {
       db.all(sql, function (err, rows) {
