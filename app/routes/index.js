@@ -6,6 +6,8 @@ const surgeryGet = require("./surgery-get-route");
 const surgeryPost = require("./surgery-post-route");
 const surgeryDelete = require("./surgery-delete-route");
 const surgeryPut = require("./surgery-put-route");
+const statusGet = require("./status-get-route");
+const statusPost = require("./status-post-route");
 const loadDatabase = require("../data/setup-database");
 
 module.exports = function (app, db) {
@@ -24,4 +26,8 @@ module.exports = function (app, db) {
   surgeryPost(app, db);
   surgeryDelete(app, db);
   surgeryPut(app, db);
+
+  // status routes
+  statusGet(app, db);
+  statusPost(app, db);
 };
