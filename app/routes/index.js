@@ -1,19 +1,27 @@
-const getRoutes = require('./patient-get-route');
-const postRoutes = require('./patient-post-route');
-const putRoutes = require('./patient-put-route');
-const deleteRoutes = require('./patient-delete-route');
-const loadDatabase = require('../data/setup-database');
+const patientGet = require("./patient-get-route");
+const patientPost = require("./patient-post-route");
+const patientPut = require("./patient-put-route");
+const patientDelete = require("./patient-delete-route");
+const surgeryGet = require("./surgery-get-route");
+const surgeryPost = require("./surgery-post-route");
+const surgeryDelete = require("./surgery-delete-route");
+const surgeryPut = require("./surgery-put-route");
+const loadDatabase = require("../data/setup-database");
 
 module.exports = function (app, db) {
-
-  // create database in case it was not created yeat, 
+  // create database in case it was not created yeat,
   // or update in case of migrations
   loadDatabase(db);
 
-  // start routes
-  getRoutes(app, db);
-  postRoutes(app, db);
-  putRoutes(app, db);
-  deleteRoutes(app, db);
+  // patient routes
+  patientGet(app, db);
+  patientPost(app, db);
+  patientPut(app, db);
+  patientDelete(app, db);
 
+  // surgery routes
+  surgeryGet(app, db);
+  surgeryPost(app, db);
+  surgeryDelete(app, db);
+  surgeryPut(app, db);
 };
