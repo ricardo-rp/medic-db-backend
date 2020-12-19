@@ -12,8 +12,8 @@ module.exports = function (app, db) {
 
   // Load all patients: http://localhost:4300/patient/
   app.get("/timeline", (req, res) => {
-    const sql = `select COUNT(id), 
-    strftime("%m-%Y", birth_date) as 'month-year' 
+    const sql = `select COUNT(id) as cnt, 
+    strftime("%m-%Y", birth_date) as label 
     from Patients group by strftime("%m-%Y", birth_date)`;
     processData(res, sql);
   });
