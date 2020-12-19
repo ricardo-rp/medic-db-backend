@@ -4,6 +4,25 @@ module.exports = function (app, db) {
     processData(res, "SELECT * FROM surgeries");
   });
 
+  app.get("/surgery/count", (req, res) => {
+    var sql = `
+    SELECT
+      Surgeries.label,
+      Count(Patients.surgery_id) as cnt
+    FROM
+      Surgeries
+    INNER JOIN
+      Patients
+    ON
+      Surgeries.id=Patients.surgery_id
+    GROUP BY
+      Surgeries.id
+    ORDER BY
+      cnt DESC
+    `;
+    processData(res, sql);
+  });
+
   function processData(res, sql) {
     db.serialize(function () {
       db.all(sql, function (err, rows) {
